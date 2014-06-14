@@ -16,4 +16,4 @@ What is a table? Is it an element? Or is it a collection of more atomic elements
 
 # Next steps
 
-You've added a darcy implementation as a dependency to your project and you understand the basics of darcy's domain model. [Let's start writing some code](getting_started/defining_a_view.md)!
+You've added a darcy implementation as a dependency to your project and you understand the basics of darcy's domain model. [Let's start writing some code](defining_a_view.md)!

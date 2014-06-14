@@ -96,7 +96,7 @@ If you ever needed finer grain control in determining whether a view was loaded 
 
 # Next steps
 
-So now we have a page object that is valid at compile and runtime. Unfortunately, our view is still missing something key. I left something out when I said a view is an organization of elements. A view is also an organization of _behaviors_. A view must take ownership of the behavior that is exercised as a result of interacting with its elements. That is, after we click submit, its our view's responsibility to wait for the next page to load before returning from the method. Let's see what facilities darcy provides for us to accomplish just that in [tutorial #3](getting_started/owning_behavior_in_views.md).
+So now we have a page object that is valid at compile and runtime. Unfortunately, our view is still missing something key. I left something out when I said a view is an organization of elements. A view is also an organization of _behaviors_. A view must take ownership of the behavior that is exercised as a result of interacting with its elements. That is, after we click submit, its our view's responsibility to wait for the next page to load before returning from the method. Let's see what facilities darcy provides for us to accomplish just that in [tutorial #3](owning_behavior_in_views.md).
 
  [1]: https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/View.java
  [2]: https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/Locator.java
