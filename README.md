@@ -13,10 +13,6 @@ Darcy is a framework for writing [**page objects**](http://martinfowler.com/blik
 Example page object
 ===================
 ```java
-import static com.redhat.darcy.ui.elements.Elements.textInput;
-import static com.redhat.darcy.ui.elements.Elements.button;
-import static com.redhat.synq.Synq.after;
-
 @RequireAll
 public class MyHomePage extends AbstractView {
   private TextInput login = textInput(By.id("login"));
@@ -33,7 +29,7 @@ public class MyHomePage extends AbstractView {
     return after(submit::click)
         .expect(transition().to(new AccountDetails())
         .failIf(errorMsg::isDisplayed)
-          .throwing(new InvalidLoginException(credentials, errorMsg.readText()))
+          .throwing(new LoginException(credentials, errorMsg.readText()))
         .waitUpTo(1, MINUTES);
   }
 }
