@@ -1,5 +1,4 @@
-Automating Applications with Darcy
-=========
+# Automating Applications with Darcy
 
 Darcy is a framework for writing [**page objects**](http://martinfowler.com/bliki/PageObject.html) in order to automate interaction with graphical user interfaces. Page objects are classes that model what a user can see and do with a specific page. In darcy each page, or subset of a page, is called a [View](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/View.java).
 
@@ -10,8 +9,7 @@ Darcy is a framework for writing [**page objects**](http://martinfowler.com/blik
 * Open source and licensed under [version 3 of the GPL](https://www.gnu.org/copyleft/gpl.html).
 * Dependent on Java 8. [Get your lambda on](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html)!
 
-Example page object
-===================
+# Example page object
 ```java
 @RequireAll
 public class MyHomePage extends AbstractView {
@@ -34,3 +32,7 @@ public class MyHomePage extends AbstractView {
   }
 }
 ```
+
+# Disclaimer and Feedback
+
+Darcy, as well as this documentation, are works in progress. I welcome your feedback (and perhaps even contributions!) on the project and the documentation. Feel free to open an issue or submit a pull request: [http://github.com/darcy-framework](http://github.com/darcy-framework).
