@@ -12,7 +12,7 @@ public class MyHomePage extends AbstractView {
 }
 ```
 
-Okay, so this will compile, but it's clearly missing its guts. We said Views are organizations of elements, so lets add some.
+Okay, so this will compile, but it's clearly missing its guts. We said Views are organizations of elements, so let's add some.
 
 ## Elements as fields
 There are two ways to interact with elements. The first we'll introduce is the most common and most straightforward. Defining elements as fields is great because,
