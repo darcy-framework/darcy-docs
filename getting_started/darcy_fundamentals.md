@@ -1,10 +1,10 @@
 # Fundamentals
 
-## Views and Elements
+## Views, Elements, and Contexts
 
-Darcy's domain model consists of two main constructs: ```View```s and ```Element```s. Views are your typical page objects, minus the stipulation that they have to represent _whole pages_; they can also represent other collections of elements (such as a widget on a page, or a reusable menu). In fact that's really just what a View is: a organization of elements. The APIs for your Views are derived from behavior your user's get from those elements. Darcy provides an opinionated structure and API for defining Views and tying them together. We'll go over that in these tutorials.
+Darcy's domain model consists of two main constructs: `View`s and `Element`s. Views are your typical page objects, minus the stipulation that they have to represent _whole pages_; they can also represent other collections of elements (such as a widget on a page, or a reusable menu). In fact that's really just what a View is: a organization of elements. The APIs for your Views are derived from behavior your user's get from those elements. Darcy provides an opinionated structure and API for defining Views and tying them together. We'll go over that in these tutorials.
 
-Elements are the concise UI atoms that make up a View. Elements are 1:1 with your typical fundamental UI element types: text inputs, buttons, select boxes, etc. Darcy only provides an API for these elements, and leaves it up to a wrapper around some automation library to implement them. [darcy-webdriver](https://github.com/darcy-framework/darcy-webdriver) is just such a wrapper: it implements darcy's APIs with [Selenium WebDriver](http://docs.seleniumhq.org/).
+Elements are the concise UI atoms that make up a View. Elements are 1:1 with your typical fundamental UI element types: text inputs, buttons, select boxes, etc. Darcy tries to make element APIs concise and readable. In particular, elements in darcy are _lazily loaded_. That is, looking up an element that is not present in the View's `Context` will not immediately throw an exception. You can safely check for that elements visibility or presence, without excessive try/catch clauses.
 
 ## darcy-web
 
