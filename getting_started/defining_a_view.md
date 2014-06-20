@@ -52,9 +52,11 @@ Here's an equivalent version of page object that looks up elements via the conte
 ```java
 public class MyHomePage extends AbstractView {
   public void login(Credentials credentials) {
-    TextInput login = getContext().element().textInput(By.id("login"));
-    TextInput password = getContext().element().textInput(By.id("password"));
-    Button submit = getContext().element().button(By.id("submit"));
+    ElementContext context = getContext();
+    
+    TextInput login = context.find().textInput(By.id("login"));
+    TextInput password = context.find().textInput(By.id("password"));
+    Button submit = context.find().button(By.id("submit"));
 
     login.clearAndType(credentials.login());
     password.clearAndType(credentials.password());
@@ -64,10 +66,10 @@ public class MyHomePage extends AbstractView {
 }
 ```
 
-As you can see, it's a little more verbose, but it allows us to put off creating a ```Locator``` until the method is called, which will be necessary on occasion.
+As you can see, it's a little more verbose, but it allows us to put off creating a `Locator` until the method is called, which will be necessary on occasion.
 
 ## Load conditions
-We said the contract of a view is that it must implement the ```View``` interface. The View interface defines three methods: ```setContext```, ```getContext```, and ```isLoaded```. These views have extended ```AbstractView```, which has implemented those for us. Now, we can imagine how ```setContext``` and ```getContext``` could be implemented, but what about ```isLoaded?``` How does ```AbstractView``` know whether to return true or false for that method? The answer is right now, it doesn't! But we can fix that quite easily.
+We said the contract of a view is that it must implement the `View` interface. The View interface defines three methods: `setContext`, `getContext`, and `isLoaded`. These views have extended `AbstractView`, which has implemented those for us. Now, we can imagine how `setContext` and `getContext` could be implemented, but what about `isLoaded`? How does `AbstractView` know whether to return true or false for that method? The answer is right now, it doesn't! But we can fix that quite easily.
 
 ```java
 import static com.redhat.darcy.ui.Elements.*;
