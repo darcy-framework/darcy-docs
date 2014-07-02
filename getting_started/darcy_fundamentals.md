@@ -12,7 +12,7 @@ By default, darcy's API's are not even web specific. UI is a common language tha
 
 ## "Custom" elements
 
-What is a table? Is it an element? Or is it a collection of more atomic elements? What is a calendar widget? Is the Calendar an element? In darcy, they can, and should be, both a View and an Element. They can behave like a singular element by simply implementing [```Element```](https://github.com/darcy-framework/darcy/tree/master/src/main/java/com/redhat/darcy/ui/elements) (or some extension thereof), and integrate a collection of smaller elements into a higher level API by being a View. We'll learn about how to write and integrate custom element implementations later.
+What is a table? Is it an element? Or is it a collection of more atomic elements? What is a calendar widget? Is the Calendar an element? In darcy, they can, and should be, both a View and an Element. They can behave like a singular element by simply implementing [`Element`](https://github.com/darcy-framework/darcy/tree/master/src/main/java/com/redhat/darcy/ui/elements) (or some extension thereof), and integrate a collection of smaller elements into a higher level API by being a View. We'll learn about how to write and integrate custom element implementations later.
 
 # Next steps
 

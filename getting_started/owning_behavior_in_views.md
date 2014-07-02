@@ -34,23 +34,16 @@ public class GoogleSearch extends AbstractView {
 }
 ```
 
-So, if you're not familiar with Java 8's lambda expressions, [now's the time to review][2]. What we're doing here should be pretty readable: after we press enter on the query text box, we should expect some _thing_ to satisfy some _condition_ (in this case, it's a list of search results, and the condition is that the list is not empty), and we want to wait up to 30 seconds for that expectation to be met. Behind the scenes, the enter key is not pressed until we tell synq to wait. When the condition is satisfied, the value under examination is returned (in this case, the list of search results). If the condition is not met within the time limit, a TimeoutException will be thrown.
-
-[2]: http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
+So, if you're not familiar with Java 8's lambda expressions, [now's the time to review](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html). What we're doing here should be pretty readable: after we press enter on the query text box, we should expect some _thing_ to satisfy some _condition_ (in this case, it's a list of search results, and the condition is that the list is not empty), and we want to wait up to 30 seconds for that expectation to be met. Behind the scenes, the enter key is not pressed until we tell synq to wait. When the condition is satisfied, the value under examination is returned (in this case, the list of search results). If the condition is not met within the time limit, a TimeoutException will be thrown.
 
 ## A quick overview of synq's domain model
-The things that synq can wait for are called [```Event```][3]s. An event is just that: something that may happen in the future and can be awaited. The implementation of a specific event takes care of the waiting. You can get an event to wait for in two different ways: either something else makes event instances for you, or you can construct an event yourself by describing the things that must or must not be true when that event occurs. This is what we have done in our example. When we construct an event this way, we construct a [```PollEvent```][4], that is, the occurrence of this event is determined by _polling_ until that condition is met. It's not as accurate as an event that _listens_ for a trigger, but they're very flexible and easy to construct.
+The things that synq can wait for are called [`Event`](https://github.com/darcy-framework/synq/blob/master/src/main/java/com/redhat/synq/Event.java)s. An event is just that: something that may happen in the future and can be awaited. The implementation of a specific event takes care of the waiting. You can get an event to wait for in two different ways: either something else makes event instances for you, or you can construct an event yourself by describing the things that must or must not be true when that event occurs. This is what we have done in our example. When we construct an event this way, we construct a [`PollEvent`](https://github.com/darcy-framework/synq/blob/master/src/main/java/com/redhat/synq/PollEvent.java), that is, the occurrence of this event is determined by _polling_ until that condition is met. It's not as accurate as an event that _listens_ for a trigger, but they're very flexible and easy to construct.
 
-Harnessing the full extent of the synq API will make your automation more reliable and failures more identifiable. Read more about synq's API [here][1].
-
-[3]: https://github.com/darcy-framework/synq/blob/master/src/main/java/com/redhat/synq/Event.java
-[4]: https://github.com/darcy-framework/synq/blob/master/src/main/java/com/redhat/synq/PollEvent.java
+Harnessing the full extent of the synq API will make your automation more reliable and failures more identifiable. Read more about synq's API [here](https://github.com/darcy-framework/synq).
 
 ## Transitions
 
-> Note this area of darcy is subject to change.
-
-In our previous example we constructed an event from a condition. When we want to await a transition from one view to another within a context, darcy can provide us an event to wait for. This event is aptly named, [```TransitionEvent```][5]. If page objects are to own behavior, then they must also own transitioning from one page to another. We'll use our transition event to accomplish this.
+In our previous example we constructed an event from a condition. When we want to await a transition from one view to another within a context, darcy can provide us an event to wait for. This event is aptly named, [`TransitionEvent`](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/TransitionEvent.java). If page objects are to own behavior, then they must also own transitioning from one page to another. We'll use our transition event to accomplish this.
 
 Let's take a look at a login page. When we login successfully, we expect that the account overview page should load thereafter.
 
@@ -77,12 +70,10 @@ public class Login extends AbstractView {
 }
 ```
 
-So you should notice some differences from our previous example. First, we are passing a pre-made event to ```expect```. This is our transition event. We can create a transition event by calling ```transition()``` (a protected method on AbstractView) and then passing what view we expect to transition to in ```to(View)```.
+So you should notice some differences from our previous example. First, we are passing a pre-made event to `expect`. This is our transition event. We can create a transition event by calling `transition()` (a protected method on AbstractView) and then passing what view we expect to transition to in `to(View)`.
 
-Secondly, we're using another feature in synq's API: ```failIf```. This accepts another event (or can construct a ```PollEvent``` from a function as we have done here), and the resulting event will wait for //both//. That is, it will react to either event occuring: the transition //or// the error being displayed. If the error is displayed before the transition occurs (which triggers when the transition is complete), then the waiting will halt, an an exception will be thrown. The exception to be thrown is specified in ```throwing``` as you can see above. If the transition occurs before the error is displayed, the test will happily move along. If neither occurs before the timeout (1 minute in this case), a ```TimeoutException``` will be thrown. Got all that?
+Secondly, we're using another feature in synq's API: `failIf`. This accepts another event (or can construct a `PollEvent` from a function as we have done here), and the resulting event will wait for //both//. That is, it will react to either event occuring: the transition //or// the error being displayed. If the error is displayed before the transition occurs (which triggers when the transition is complete), then the waiting will halt, an an exception will be thrown. The exception to be thrown is specified in `throwing` as you can see above. If the transition occurs before the error is displayed, the test will happily move along. If neither occurs before the timeout (1 minute in this case), a `TimeoutException` will be thrown. Got all that?
 
 # Next steps
 
-At this point, we've gone over all the material necessary to construct great views, hallmarks of the page object pattern! We can work with elements, and we can block our thread from moving on until certain necessary conditions are met to keep our automation code in sync with the UI it's interacting with. Now how the heck do we actually open one of these pages in a browser? Where do we even get a browser to work with? What's the relationship between Views and ElementContexts? All of these questions will be answered in [[tutorial #4|Getting Started #4: Contexts and Browsers]].
-
-[5]: https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/TransitionEvent.java
+At this point, we've gone over all the material necessary to construct great views, hallmarks of the page object pattern! We can work with elements, and we can block our thread from moving on until certain necessary conditions are met to keep our automation code in sync with the UI it's interacting with. Now how the heck do we actually open one of these pages in a browser? Where do we even get a browser to work with? What's the relationship between Views and ElementContexts? All of these questions will be answered in [the next chapter](browsers_and_contexts.md).
