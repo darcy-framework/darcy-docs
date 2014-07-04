@@ -26,7 +26,7 @@ String google = "http://www.google.com";
 GoogleSearch search = browser.open(google, new GoogleSearch());
 ```
 
-What if we wanted to associate that URL string with the expected view more closely? We can do just that with the ViewUrl type.
+What if we wanted to associate that URL string with the expected view more closely? We can do just that with the `ViewUrl` type.
 
 ```java
 @RequireAll
