@@ -31,7 +31,7 @@ public class GoogleSearch extends AbstractView {
     // Get a new list each call to make sure our results are current
     // This uses a custom element implementation... we'll talk about how
     // that works later
-    return getContext().find().listOfType(SearchResult.class,
+    return getContext().find().elementsOfType(SearchResult.class,
         By.xpath("//li[@class]"), SearchResultImpl::new);
   }
 }
