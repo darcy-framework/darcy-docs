@@ -14,7 +14,7 @@ UI objects that are composed of several elements can behave like one singular el
 
 ### Views
 
-Views are your page objects. This chapter you're reading could be described as a view. It has paragraph text, links, and some example elements above. Views describe some collection of elements and their collective behavior, without the linguistic stipulation that they ought to represent _whole pages_; they can and should also represent _parts_ of pages, such as a shared navigation menu, or a calendar widget that is composed of several smaller elements. The table of contents on the left is a great candidate for a view that is not a whole page and could reused for every chapter. You're encouraged to house views within views in a "compositional" style where appropriate. **Darcy** provides an opinionated structure and API for defining views and tying them together.
+Views are your page objects. This chapter you're reading could be described as a view. It has paragraph text, links, and some example elements above. Views describe some collection of elements and their collective behavior, without the linguistic stipulation that they ought to represent _whole pages_; they can and should also represent _parts_ of pages, such as a shared navigation menu, or a calendar widget that is composed of several smaller elements. The table of contents on the left is a great candidate for a view that is not a whole page and could reused for every chapter. You're encouraged to house views within views in a "compositional" style where appropriate.
 
 ### Contexts
 
