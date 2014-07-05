@@ -8,7 +8,7 @@ To accomplish this, we'll enlist the help of another library, [**synq**](https:/
 
 ## Using synq to wait for expected behavior
 
-When you type in a search query and press 'enter' in Google, an asynchronous request is made to retrieve your search results. If we tried to examine or interact with the results before they came back, our automation code might find there were no results to interact with, or worse, fail if it assumed there was at least one! It is not the responsibility of everything interacting with that page object to know about this caveat, and how to deal with it. Clearly, it is the most maintainable thing to own this in the page object that would represent the Google search page, and _avoid letting consumers of this page object proceed while the UI is in a state of flux_. Let's see what that might look like.
+When you type in a search query and press 'enter' in Google, an asynchronous request is made to retrieve your search results. If we tried to examine or interact with the results before they came back, our automation code might find there were no results to interact with, or worse, fail if it assumed there was at least one! It is not the responsibility of everything interacting with that page object to know about this caveat, and how to deal with it. Clearly, the most maintainable thing is to own this in the page object that would represent the Google search page, and _avoid letting consumers of this page object proceed at all while the UI is in a state of flux_. Let's see what that might look like.
 
 ```java
 import static com.redhat.synq.Synq.after;
