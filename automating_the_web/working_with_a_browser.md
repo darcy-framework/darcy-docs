@@ -63,7 +63,7 @@ I recommend getting creative with your `ViewUrl` instantiation when writing a lo
 
 ```java
 public class AdviceAnimals extends AbstractView {
-  public staic ViewUrl<AdviceAnimals> url() {
+  public static ViewUrl<AdviceAnimals> url() {
     return RedditUrl.subReddit("AdviceAnimals", AdviceAnimals::new);
   }
 
