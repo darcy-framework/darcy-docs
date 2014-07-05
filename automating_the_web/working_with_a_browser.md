@@ -1,6 +1,6 @@
 # Working with a Browser
 
-When it comes time to actually open a browser, we have to first pick an automation library implementation to use. The common entrypoint for all browser automation libraries is the `BrowserFactory`, however each library will have its own setup specifics.
+The common entrypoint for all browser automation libraries is the `BrowserFactory`, however each library will have its own setup specifics.
 
 ## Getting started with darcy-webdriver
 
