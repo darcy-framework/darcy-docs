@@ -32,7 +32,7 @@ public class GoogleSearch extends AbstractView {
     // This uses a custom element implementation... we'll talk about how
     // that works later
     return getContext().find().elementsOfType(SearchResult.class,
-        By.xpath("//li[@class]"), SearchResultImpl::new);
+        By.xpath("//div[@class='rc']"), SearchResultImpl::new);
   }
 }
 ```
