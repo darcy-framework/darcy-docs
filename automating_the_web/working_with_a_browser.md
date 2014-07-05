@@ -12,7 +12,7 @@ To use Selenium WebDriver as the automation library implementation, import darcy
 <version>0.1-SNAPSHOT</version>
 ```
 
-There are several `BrowserFactory` implementations to choose from in the darcy-webdriver library, corresponding to each WebDriver implementation available, such as FirefoxDriver or RemoteWebDriver. Within each `BrowserFactory`, you can fluently describe any DesiredConditions or other options, like a Firefox profile.
+There are several `BrowserFactory` implementations to choose from in the darcy-webdriver library, each corresponding to an available WebDriver implementation, such as FirefoxDriver or RemoteWebDriver. Within each specific browser factory, you can fluently describe any DesiredConditions or other options, like a Firefox profile.
 
 ```java
 import com.redhat.darcy.web.Browser;
