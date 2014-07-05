@@ -4,7 +4,7 @@ When you are using an application, you are reactive. You wait for feedback from 
 
 Computers don't yet have this luxury. And so, automating interaction with an application necessarily involves constantly syncing up that automation code with the application code. The computer is blindfolded. You can't just tell it where to click, you have to give it a means to _see_ into the application, to solicit feedback, just as you would do implicitly.
 
-**Darcy** leverages another library for this duty: [**synq**](https://github.com/darcy-framework/synq). In this tutorial we'll learn the basics of **synq**'s API and how it cooperates with **darcy**.
+To accomplish this, we'll enlist the help of another library, [**synq**](https://github.com/darcy-framework/synq). This tutorial describes the basics of **synq**'s API and how it cooperates with **darcy**.
 
 ## Using synq to wait for expected behavior
 
