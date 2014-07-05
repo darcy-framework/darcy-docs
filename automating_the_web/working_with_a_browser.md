@@ -74,4 +74,4 @@ In this example, should the URL scheme for subreddits change, or you want to use
 
 # Next steps
 
-At this point, you know how to describe views, work with elements and transitions, open a browser, and use it to open a URL pointing to a view. In other words, you're ready to write some serious automation. I recommend trying to automate some basic tasks, and exploring the APIs available to you in `Browser` and the various elements. Questions? Comments? Concerns? File an issue or open a pull request on [**darcy**'s GitHub](http://github.com/darcy-framework).
+At this point, you know how to describe views, work with elements and transitions, open a browser, and use it to open a URL pointing to a view. In other words, you're ready to write some serious automation! I recommend trying to automate some basic tasks, and exploring the APIs available to you in `Browser` and the various elements. Questions? Comments? Concerns? File an issue or open a pull request on [**darcy**'s GitHub](http://github.com/darcy-framework).
