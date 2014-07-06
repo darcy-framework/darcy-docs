@@ -1,6 +1,6 @@
 # Automating Applications with Darcy
 
-**Darcy** is a framework for writing [**page objects**](http://martinfowler.com/bliki/PageObject.html) in order to automate interaction with graphical user interfaces. Page objects are classes that model what a user can see and do with a specific page. In **darcy** each page, or subset of a page, is called a [view](getting_started/darcy_fundamentals.md).
+**Darcy** is a framework for writing [**page objects**](http://martinfowler.com/bliki/PageObject.html) in order to automate interaction with graphical user interfaces. Page objects are classes that model what a user can see and do with a specific page.
 
 Key features:
 
