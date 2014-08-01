@@ -61,6 +61,8 @@ GoogleSearch search = browser.open(google, new GoogleSearch())
     .waitUpTo(1, ChronoUnit.MINUTES);
 ```
 
+You'll notice many of the Browser APIs return events for precisely the same reason.
+
 ## View URLs
 
 What if we wanted to associate that URL string with the expected view more closely? We can do just that with the `ViewUrl` type.
