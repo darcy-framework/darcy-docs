@@ -30,16 +30,38 @@ Browser browser = browserFactory.newBrowser();
 
 Each call to `newBrowser` launches a FirefoxDriver for us to use, and gives us a `Browser` object that controls it. Finally! Let's get started with it.
 
-## URLs
+## Open event
 
-To open a page, we not only need to supply a URL to plug into the browser, but also a view that we expect to be loaded as a result. The browser will set itself as the view's context and block the thread until the view tells us that it is loaded.
+Interaction with the browser is asynchronous. The opened page might have some redirects, or some Javascript or AJAX to load. In the `Browser` API, there is a method `open(String, View)` that accepts a URL string, and a view that you expect to be loaded, with the browser as its context, after this operation should complete. We've seen these kinds of expectations before when we wrote our views: transitions. The same concept applies here. We are constructing a transition event that should happen after we open the provided URL.
+
+In light of this, `open` returns an `Event`!
 
 ```java
 String google = "http://www.google.com";
-GoogleSearch search = browser.open(google, new GoogleSearch());
+Event<GoogleSearch> openSearch = browser.open(google, new GoogleSearch());
 ```
 
-Notice that `open` returns the view that we passed in as an argument. This allows us to instantiate the view, open its URL, wait for it to be loaded, and assign it to a variable, all in one line.
+And like all events, it can be awaited:
+
+```java
+openSearch.waitUpTo(1, ChronoUnit.MINUTES);
+```
+
+Or, customized further:
+
+```java
+openSearch.failIf(browser.transition().to(new Http404Page());
+```
+
+Of course, you will likely want to chain the event interaction, so you can simply get back your view:
+
+```java
+String google = "http://www.google.com";
+GoogleSearch search = browser.open(google, new GoogleSearch())
+    .waitUpTo(1, ChronoUnit.MINUTES);
+```
+
+## View URLs
 
 What if we wanted to associate that URL string with the expected view more closely? We can do just that with the `ViewUrl` type.
 
@@ -56,7 +78,7 @@ public class GoogleSearch extends AbstractView {
 And now to open this page, we can simply do:
 
 ```java
-GoogleSearch search = browser.open(GoogleSearch.url());
+GoogleSearch search = browser.open(GoogleSearch.url()).waitUpTo(1, ChronoUnit.MINUTES);
 ```
 
 I recommend getting creative with your `ViewUrl` instantiation when writing a lot of page objects for your applications. Something like this would be more "DRY":
