@@ -80,7 +80,8 @@ public class GoogleSearch extends AbstractView {
 And now to open this page, we can simply do:
 
 ```java
-GoogleSearch search = browser.open(GoogleSearch.url()).waitUpTo(1, ChronoUnit.MINUTES);
+GoogleSearch search = browser.open(GoogleSearch.url())
+    .waitUpTo(1, ChronoUnit.MINUTES);
 ```
 
 I recommend getting creative with your `ViewUrl` instantiation when writing a lot of page objects for your applications. Something like this would be more "DRY":
