@@ -37,7 +37,7 @@ public class GoogleSearch extends AbstractView {
 }
 ```
 
-So, if you're not familiar with Java 8's lambda expressions, [now's the time to review](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html). What we're doing here should be pretty readable: after we press enter on the query text box, we should expect the list that is returned from `getSearchResults` is not empty, and we want to wait up to 30 seconds for that expectation to be met. Behind the scenes, the enter key is not pressed until we tell synq to wait. When the search results list has some results, `waitUpTo` returns the list. If the list is still empty after 30 seconds, a TimeoutException will be thrown.
+So, if you're not familiar with Java 8's lambda expressions, [now's the time to review](http://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html). What we're doing here should be pretty readable: after we press enter on the query text box, we should expect the list that is returned from `getSearchResults` is not empty, and we want to wait up to 30 seconds for that expectation to be met. Behind the scenes, the enter key is not pressed until we tell **synq** to wait. When the search results list has some results, `waitUpTo` returns the list. If the list is still empty after 30 seconds, a TimeoutException will be thrown.
 
 > Note this doesn't consider the possibility of the search actually returning zero results of course, but I'll leave implementing that as an exercise for the reader.
 
