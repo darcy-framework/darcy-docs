@@ -22,7 +22,7 @@ A context is anything that can find something else. They have knowledge of other
 
 > If you're coming from Selenium WebDriver, this is a little bit different than how WebDriver works out of the box. A single driver refers to only one window or frame at a time, but it may switch to different ones. In **darcy**, a browser or frame reference will always point to the same browser or frame, and this will never change. When you need to interact with a new window, you will find it and get a reference to it. Now you will have two references to two different windows.
 
-Contexts are generally what define the type of application you're working with. If you're automating a web application, your context is a browser (or frame). If you're automating an Android app, your context is an application in the Android operating system. What all contexts have in common is that they can lookup references to elements or other contexts, but beyond that they will have general specific API's depending on what a user can typicall do with them.
+Contexts are generally what define the type of application you're working with. If you're automating a web application, your context is a browser (or frame). If you're automating an Android app, your context is an application in the Android operating system. What all contexts have in common is that they can lookup references to elements or other contexts, but beyond that they will have general specific API's depending on what a user can typically do with them.
 
 ## Tying them together
 

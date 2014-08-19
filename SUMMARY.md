@@ -1,5 +1,6 @@
 # Summary
 
+* [Introduction](README.md)
 * [Project Structure](project_structure/README.md)
 * [Getting Started](getting_started/README.md)
    * [Fundamentals](getting_started/darcy_fundamentals.md)
