@@ -12,6 +12,19 @@ To use Selenium WebDriver as the automation library implementation, import darcy
 <version>0.1-SNAPSHOT</version>
 ```
 
+To use snapshot versions, you'll need Sonatype's snapshot repo in your pom or settings.xml.
+
+```xml
+<repositories>
+    <repository>
+        <id>central-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <releases><enabled>false</enabled></releases>
+        <snapshots><enabled>true</enabled></snapshots>
+    </repository>
+</repositories>
+```
+
 There are several `BrowserFactory` implementations to choose from in the darcy-webdriver library, each corresponding to an available WebDriver implementation, such as FirefoxDriver or RemoteWebDriver. Within each specific browser factory, you can fluently describe any DesiredConditions or other options, like a Firefox profile.
 
 ```java
