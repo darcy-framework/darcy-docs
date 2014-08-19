@@ -23,7 +23,7 @@ public class GoogleSearch extends AbstractView {
 
     return after(() -> query.sendKeys('\n'))
       .expectCallTo(this::getSearchResults, results -> !results.isEmpty())
-      .waitUpTo(30, TimeUnit.SECONDS);
+      .waitUpTo(30, ChronoUnit.SECONDS);
   }
 
   // The implementation of this method is not important for this example
