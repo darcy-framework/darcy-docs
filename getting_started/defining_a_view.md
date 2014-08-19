@@ -96,7 +96,7 @@ public class MyHomePage extends AbstractView {
 
 Did you see what we changed? We added annotations. One with a class target, `RequireAll`, and one with a field target, `NotRequired`. I bet you can guess what these do! `RequireAll` tells `AbstractView` that in order for this view to be considered loaded, all of the declared element fields must be displayed, except those annotated with `NotRequired`. Now `AbstractView` knows how to determine if our view is loaded or not.
 
-If you ever needed finer grain control in determining if a view is loaded, you can override the protected method `loadCondition` which returns a function that can be used to evaluate whether or not the view is loaded, in addition to annotated elements. If no elements are annotated and `loadCondition` is not overriden, an exception will be thrown on a call to `setContext` or `isLoaded` for that view.
+If you ever needed finer grain control in determining if a view is loaded, you can override the `isLoaded` method. Just remember, if you want to retain the analysis of annotated elements as part of that load condition, make sure to consider `super.isLoaded` as well! If no elements are annotated and `isLoaded` is not overriden, an exception will be thrown on a call to `isLoaded` for that view.
 
 # Next steps
 
