@@ -1,6 +1,6 @@
 # Defining a View
 
-Views are represented in code by the  [`View`](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/View.java) interface. It says views are associated with [`ElementContexts`](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/View.java) (described in [2.1. Fundamentals](darcy_fundamentals.md)) in order for them to look up the elements they are associated with, and requires an `isLoaded` method implementation that the framework and your code can use to determine if a view is fully loaded in whatever context it is assigned to.
+Views are represented in code by the  [`View`](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/api/View.java) interface. It says views are associated with [`ElementContexts`](https://github.com/darcy-framework/darcy/blob/master/src/main/java/com/redhat/darcy/ui/api/ElementContext.java) (described in [2.1. Fundamentals](darcy_fundamentals.md)) in order for them to look up the elements they are associated with, and requires an `isLoaded` method implementation that the framework and your code can use to determine if a view is fully loaded in whatever context it is assigned to.
 
 ## Extend `AbstractView`
 
