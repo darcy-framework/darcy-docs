@@ -71,7 +71,7 @@ public class Login extends AbstractView {
         .expect(transition().to(new AccountOverview()))
         .failIf(errorMsg::isDisplayed)
           .throwing(new InvalidLoginException(credentials, errorMsg.readText()))
-        .waitUpTo(1, TimeUnit.MINUTES);
+        .waitUpTo(1, ChronoUnit.MINUTES);
   }
 }
 ```
