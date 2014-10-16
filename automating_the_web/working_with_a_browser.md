@@ -63,7 +63,8 @@ openSearch.waitUpTo(1, ChronoUnit.MINUTES);
 Or, customized further:
 
 ```java
-openSearch.failIf(browser.transition().to(new Http404Page());
+openSearch = browser.open(google, new GoogleSearch())
+    .failIf(browser.transition().to(new Http404Page());
 ```
 
 Of course, you will likely want to chain the event interaction, so you can simply get back your view:
