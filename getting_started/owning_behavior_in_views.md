@@ -21,7 +21,7 @@ public class GoogleSearch extends AbstractView {
   public List<SearchResult> searchFor(String queryToSearch) {
     query.clearAndType(queryToSearch);
 
-    return after(() -> query.sendKeys('\n'))
+    return after(() -> query.type('\n'))
       .expectCallTo(this::getSearchResults, results -> !results.isEmpty())
       .waitUpTo(30, ChronoUnit.SECONDS);
   }
